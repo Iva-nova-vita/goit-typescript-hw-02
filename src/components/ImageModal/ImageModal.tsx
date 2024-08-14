@@ -1,16 +1,12 @@
 import ReactModal from 'react-modal';
+import { Image } from '../../types/types';
 
 ReactModal.setAppElement('#root');
 
 type ImageModalProps = {
   isModalOpen: boolean,
   closeModal: ()=>void,
-  modalContent: {
-    urls: {
-      regular: string
-    },
-    alt_description: string
-  }
+  modalContent: Image
 }
 
 export const ImageModal: React.FC<ImageModalProps> = ({isModalOpen, closeModal, modalContent})=> {

@@ -1,6 +1,11 @@
 import css from './ImageCard.module.css';
+import { Image } from '../../types/types';
 
-export default function ImageCard({image}) {
+type ImageCardProps = {
+  image: Image
+}
+
+export const ImageCard: React.FC<ImageCardProps> = ({image}: ImageCardProps) => {
   const { urls, alt_description } = image;
   
   return (

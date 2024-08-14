@@ -1,6 +1,7 @@
 export type Image = {
     urls: {
-      regular: string
+      regular: string,
+      small: string
     },
     alt_description: string,
     id: string

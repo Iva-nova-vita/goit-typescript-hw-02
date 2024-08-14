@@ -11,7 +11,6 @@ export const ImageGallery: React.FC<ImageCardProps> = ({ images, openModal }) =>
   return (
     <ul className={css.gallery}>
       {images.map((item) => {
-        console.log(item)
         return (
           <li className={css.galleryItem} key={item.id} onClick={()=>openModal(item)}>
             <ImageCard image={item}></ImageCard>

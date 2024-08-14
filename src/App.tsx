@@ -20,14 +20,7 @@ function App() {
   const [noData, setNoData] = useState(false);
   const [loadMoreBtn, setLoadMoreBtn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<Image>({
-    urls: {
-      regular: '',
-      small: '',
-    },
-    alt_description: '',
-    id: '',
-  });
+  const [modalContent, setModalContent] = useState<Image | null>(null);
 
   useEffect(() => {
     if (searchQuery === '') {

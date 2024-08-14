@@ -8,7 +8,7 @@ import {SearchBar} from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import {LoadMoreBtn} from './components/LoadMoreBtn/LoadMoreBtn';
-import ImageModal from './components/ImageModal/ImageModal';
+import {ImageModal} from './components/ImageModal/ImageModal';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');

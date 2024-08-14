@@ -2,7 +2,18 @@ import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#root');
 
-export default function ImageModal({isModalOpen, closeModal, modalContent}) {
+type ImageModalProps = {
+  isModalOpen: boolean,
+  closeModal: ()=>void,
+  modalContent: {
+    urls: {
+      regular: string
+    },
+    alt_description: string
+  }
+}
+
+export const ImageModal: React.FC<ImageModalProps> = ({isModalOpen, closeModal, modalContent})=> {
     return (
         <ReactModal
             isOpen={isModalOpen}

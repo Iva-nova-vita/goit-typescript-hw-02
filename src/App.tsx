@@ -4,25 +4,33 @@ import { useEffect, useState } from 'react';
 import { Grid } from 'react-loader-spinner';
 
 import fetchData from './utilities/fetchData';
-import {SearchBar} from './components/SearchBar/SearchBar';
-import {ImageGallery} from './components/ImageGallery/ImageGallery';
-import {ErrorMessage} from './components/ErrorMessage/ErrorMessage';
-import {LoadMoreBtn} from './components/LoadMoreBtn/LoadMoreBtn';
-import {ImageModal} from './components/ImageModal/ImageModal';
+import { SearchBar } from './components/SearchBar/SearchBar';
+import { ImageGallery } from './components/ImageGallery/ImageGallery';
+import { ErrorMessage } from './components/ErrorMessage/ErrorMessage';
+import { LoadMoreBtn } from './components/LoadMoreBtn/LoadMoreBtn';
+import { ImageModal } from './components/ImageModal/ImageModal';
+import { Image } from './types/types';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [images, setImages] = useState([]);
+  const [images, setImages] = useState<Image[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [noData, setNoData] = useState(false);
   const [loadMoreBtn, setLoadMoreBtn] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState({});
+  const [modalContent, setModalContent] = useState<Image>({
+    urls: {
+      regular: '',
+      small: '',
+    },
+    alt_description: '',
+    id: '',
+  });
 
   useEffect(() => {
-    if (searchQuery === "") {
+    if (searchQuery === '') {
       return;
     }
     async function getImages() {
@@ -32,7 +40,9 @@ function App() {
         setNoData(false);
         setLoadMoreBtn(false);
         const response = await fetchData(searchQuery, page);
-        setImages((images)=>{return [...images, ...response.results]});
+        setImages((images) => {
+          return [...images, ...response.results];
+        });
         response.total_pages > page
           ? setLoadMoreBtn(true)
           : setLoadMoreBtn(false);
@@ -47,22 +57,22 @@ function App() {
     getImages();
   }, [page, searchQuery]);
 
-  function onSubmit(topic) {
+  function onSubmit(topic: string): void {
     setSearchQuery(topic);
     setPage(1);
     setImages([]);
   }
 
-  function loadMore() {
+  function loadMore(): void {
     setPage(page + 1);
   }
 
-  function openModal(image) {
+  function openModal(image: Image): void {
     setIsModalOpen(true);
     setModalContent(image);
   }
 
-  function closeModal() {
+  function closeModal(): void {
     setIsModalOpen(false);
   }
 
@@ -87,11 +97,7 @@ function App() {
         )}
         {error && <ErrorMessage />}
         {noData && <p>No data on your request</p>}
-        {loadMoreBtn && (
-          <LoadMoreBtn
-          onLoadMore={loadMore}
-          ></LoadMoreBtn>
-        )}
+        {loadMoreBtn && <LoadMoreBtn onLoadMore={loadMore}></LoadMoreBtn>}
         {isModalOpen && (
           <ImageModal
             isModalOpen={isModalOpen}

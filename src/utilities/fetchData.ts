@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Response } from '../types/types';
 
 const URL = 'https://api.unsplash.com/search/photos'
 const API_KEY = 'JAcvmRB72np9Zb0uw-aN8WLGkxNdyXyW6XRPL8pzTfw';

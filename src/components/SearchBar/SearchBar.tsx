@@ -3,11 +3,11 @@ import css from './SearchBar.module.css';
 import toast, { Toaster } from 'react-hot-toast';
 import { FormEvent, useRef } from 'react';
 
-type Props = {
+type SearchBarProps = {
   onSubmit: (topic: string) => void;
 }
 
-export const SearchBar: React.FC<Props> = ({ onSubmit }: Props) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }: SearchBarProps) => {
   const inputEl = useRef<HTMLInputElement>(null);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

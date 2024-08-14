@@ -4,10 +4,10 @@ import { useEffect, useState } from 'react';
 import { Grid } from 'react-loader-spinner';
 
 import fetchData from './utilities/fetchData';
-import {SearchBar} from './components/SearchBar/SearchBar.tsx';
+import {SearchBar} from './components/SearchBar/SearchBar';
 import ImageGallery from './components/ImageGallery/ImageGallery';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
-import LoadMoreBtn from './components/LoadMoreBtn/LoadMoreBtn';
+import {LoadMoreBtn} from './components/LoadMoreBtn/LoadMoreBtn';
 import ImageModal from './components/ImageModal/ImageModal';
 
 function App() {

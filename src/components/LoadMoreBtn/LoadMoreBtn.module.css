@@ -1,0 +1,19 @@
+.btnLoadMore {
+    border: none;
+    background-color: #9696d5;
+    color: white;
+    height: 30px;
+    border-radius: 4px;
+    padding: 0 16px;
+    cursor: pointer;
+    margin: 12px auto;
+    display: block;
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+        background-color: #8c8ccc;
+    }
+}

@@ -5,7 +5,7 @@ import { Grid } from 'react-loader-spinner';
 
 import fetchData from './utilities/fetchData';
 import {SearchBar} from './components/SearchBar/SearchBar';
-import ImageGallery from './components/ImageGallery/ImageGallery';
+import {ImageGallery} from './components/ImageGallery/ImageGallery';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import {LoadMoreBtn} from './components/LoadMoreBtn/LoadMoreBtn';
 import {ImageModal} from './components/ImageModal/ImageModal';
